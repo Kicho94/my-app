@@ -1,4 +1,16 @@
-.text {
-    color: green;
-    background-color: black;
+ul {
+    width: 100%;
+    text-align: center;
+}
+li {
+    display: inline;
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px
+}
+
+
+li :hover{
+    color: blue
 }

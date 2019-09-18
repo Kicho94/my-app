@@ -1,9 +1,17 @@
 import React from 'react'
 
+
+const css = {
+    textAlign:'center'
+}
+
+
+
+
 const Heading = () =>{
     return (
         
-            <h1>Welcome to my awesome webpage</h1>
+            <h1 style={css}>Please sign in</h1>
         
     )
 }

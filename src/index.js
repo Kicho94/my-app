@@ -2,41 +2,14 @@ import ReactDOM from 'react-dom'
 import React from 'react'
 import User from './User'
 import Heading from './Heading'
+import Menu from './Menu'
+import Home from './Home'
+import About from './About'
+import Contact from './Contact'
+import Login from './Login'
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 const app = document.getElementById('app')
 
-
-const Menu = () =>{
-    return (<ul>
-            <li>
-                <Link to='/'>Home</Link>
-            </li>
-            <li>
-            <Link to='/about'>About</Link>
-            </li>
-            <li>
-            <Link to='/contact'>Contact</Link>
-            </li>
-            <li>
-            <Link to='/login'>Login</Link>
-            </li>
-            <li>
-            <Link to='/user'>User</Link>
-            </li>
-           </ul>)
-}
-const Home = () =>{
-    return <h1>Welcome to my home page</h1>
-}
-const About = () =>{
-    return <h1>Welcome to my about page</h1>
-}
-const Contact = () =>{
-    return <h1>Welcome to my conctact page</h1>
-}
-const Login = () =>{
-    return <h1>Welcome to my login page</h1>
-}
 
 
 const Routes = () => 
