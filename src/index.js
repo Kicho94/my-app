@@ -8,6 +8,8 @@ import About from './About'
 import Contact from './Contact'
 import Login from './Login'
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
+import User1 from './User1'
+import Wrapper from './Wrapper'
 const app = document.getElementById('app')
 
 
@@ -22,10 +24,13 @@ const Routes = () =>
             <Route path ='/about' component = {About} />
             <Route path ='/contact' component = {Contact} />
             <Route path ='/login' component = {Login} />
-            <Route path = '/user' render = {(props)=>
+            <Route path = '/user' render =
+             {()=>
                 <React.Fragment>
-                     <Heading {...props} />
-                     <User {...props} />
+                     <Wrapper >
+                     <Heading  />
+                     </Wrapper>
+                     
                 </React.Fragment>
             }
             />
