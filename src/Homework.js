@@ -30,13 +30,13 @@ class Homework extends React.Component{
           </ModalHeader>
           <ModalBody>
           <label>Name</label>
-          <input type='text' placeholder={this.props.name}/>
+          <input type='text' defaultValue={this.props.name}/>
           <br/>
           <label>Id</label>
-          <input type='number' placeholder={this.props.id}/>
+          <input type='number' defaultValue={this.props.id}/>
           <br/>
           <label>E-mail</label>
-          <input type='text' placeholder={this.props.email}/>
+          <input type='text' defaultValue={this.props.email}/>
 
            </ModalBody>
           <ModalFooter>
