@@ -29,7 +29,15 @@ class Homework extends React.Component{
             My First Modal
           </ModalHeader>
           <ModalBody>
-            This is {this.props.name}, he is number {this.props.id} and his contact is {this.props.email}
+          <label>Name</label>
+          <input type='text' placeholder={this.props.name}/>
+          <br/>
+          <label>Id</label>
+          <input type='number' placeholder={this.props.id}/>
+          <br/>
+          <label>E-mail</label>
+          <input type='text' placeholder={this.props.email}/>
+
            </ModalBody>
           <ModalFooter>
             <Button >Save</Button>

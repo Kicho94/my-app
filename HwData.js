@@ -24,6 +24,11 @@ const data = [
         name:'Vito',
         email:'vito1@gmail.com'
     },
+    {
+        id:'6',
+        name:'Mila',
+        email:'mila@gmail.com'
+    },
 ]
 
 export default data
