@@ -1,0 +1,8 @@
+1- constructor()
+componentWillMount()
+render()
+componentDidMount-se izvrsuva posle inicijalen render
+componentDidUpdate-se povikuva posle promena na state/ne moze da smenis state.
+componentWillReceiveProps()- se povikuva posle promena na props
+componentWillUnmount()
+componentDidUnmount()otkako ke se trgne komponentata
