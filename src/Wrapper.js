@@ -1,26 +1,31 @@
 import React from 'react'
-import data from '../data'
-import User1 from './User1'
 import axios from 'axios'
+import Error from '../Error'
+
+
+
 export default class Wrapper extends React.Component{
         constructor(props){
                super(props)
                this.state = {
-                     users: []
+                     data: [],
+                     error: null,
+                     loading: false
                }
         }
     componentDidMount () {
-       axios.get('https://jsonplaceholder.typicode.com/users')
+           this.setState({ loading: true})
+       axios({
+              method: this.props.methodType,
+              url: this.props.url}
+       )
        .then((response) => {
-              const users = response.data.map(element => {
-             return <User1 key={element.id} name={element.name} email={element.email} />      
-              })
               
-              this.setState({users: users})
+      this.setState({data: response.data, loading: false})
       
        }) 
        .catch((error) =>{
-              console.log(error)
+              this.setState({error: <Error />, loading: false })
        }) 
     }
       
@@ -30,9 +35,10 @@ export default class Wrapper extends React.Component{
                                                                       //       let users= data.map(element => 
                                                                       //        {return <User1 key={element.id} name={element.name} email={element.email} /> })
        return (
-               <React.Fragment>   
-        {this.state.usersusers}
-        {this.props.children}
+         <React.Fragment>   
+        <this.props.component data={this.state.data}/>
+         {this.state.error}
+         {this.state.loading && <div>LOADING...</div>}
         </React.Fragment>
                )
     }

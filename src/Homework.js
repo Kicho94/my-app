@@ -3,11 +3,14 @@ import {Modal, ModalHeader, ModalBody, ModalFooter, Button, Container} from 'rea
 class Homework extends React.Component{
   constructor(){
   super()
-  this.state={show:false}
+  this.state={
+    show:false
+  }
   }
   toggle = () => {
     
     this.setState({show: !this.state.show})
+    
   
   }
    

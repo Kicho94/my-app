@@ -12,6 +12,7 @@ import User1 from './User1'
 import Wrapper from './Wrapper'
 import HwWrapper from './HwWrapper'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import UserList from './UsersList'
 const app = document.getElementById('app')
 
 
@@ -26,16 +27,17 @@ const Routes = () =>
             <Route path ='/about' component = {About} />
             <Route path ='/contact' component = {Contact} />
             <Route path ='/login' component = {Login} />
-            <Route path = '/user' render =
-             {()=>
-                <React.Fragment>
-                     <Wrapper >
-                     
-                     </Wrapper>
-                     
-                </React.Fragment>
-            }
-            />
+            <Route
+             path = '/user'
+             render = {()=> 
+             <Wrapper 
+             component={UserList} 
+             url='https://jsonplaceholder.typicode.com/users'/>} 
+             methodType='GET'
+             />
+                           
+                       
+           
             <Route path = '/homework' render =
              {()=>
                 <React.Fragment>
