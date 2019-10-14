@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
+import { Provider }  from 'react-redux'
 import User from './User'
 import Heading from './Heading'
 import Menu from './Menu'
@@ -13,6 +14,7 @@ import Wrapper from './Wrapper'
 import HwWrapper from './HwWrapper'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import UserList from './UsersList'
+import store from './redux/store.js'
 const app = document.getElementById('app')
 
 
@@ -59,4 +61,7 @@ const Routes = () =>
 //             )
 // }   
 
-ReactDOM.render(<Routes/>, app) 
+ReactDOM.render(
+<Provider store = {store}>
+<Routes/>
+</Provider>, app) 

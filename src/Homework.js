@@ -20,12 +20,14 @@ class Homework extends React.Component{
          <React.Fragment>
           
           <table border='1px solid black' width='100%'  >
+             <tbody>
               <tr>
               <td width='25%'>{this.props.id}</td>
               <td width='25%'>{this.props.name}</td>
               <td width='25%'>{this.props.email}</td>
               <td width='10%'><Button color='primary' onClick={this.toggle}>Launch Modal</Button></td>
             </tr>
+            </tbody>
           </table>
         <Modal isOpen={this.state.show}>
           <ModalHeader>

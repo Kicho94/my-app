@@ -17,7 +17,7 @@ export default class Wrapper extends React.Component{
            this.setState({ loading: true})
        axios({
               method: this.props.methodType,
-              url: this.props.url}
+              url: this.props.url} 
        )
        .then((response) => {
               
