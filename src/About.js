@@ -7,23 +7,25 @@ import { weatherAction } from './redux/actions/weatherAction'
 class About extends React.Component{
     constructor(props){
         super(props)
-        this.state ={
+        this.state = {
             weather: null
         }       
     }
 
     componentDidMount(){
-        axios.get('api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=94df371e7106c41b5e7b854b0a4e7423')
+        this.submit()
+        }
+
+        submit = () =>{
+            axios.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=94df371e7106c41b5e7b854b0a4e7423')
         .then((response)=> {
-            this.setState({weather: response})
-                
-            console.log(response)
-        })
-        .catch((error) =>{
+            this.setState({weather: response.data})
+            store.dispatch(weatherAction(response.data))
+            console.log(response.data)
+        }).catch((error) =>{
             console.log(error)
      }) 
         }
-        submit = () =>{store.dispatch(weatherAction(this.state.weather))}
     
     render(){
         return(

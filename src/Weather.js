@@ -20,14 +20,17 @@ class Weather extends React.Component{
     
    
     render(){
+        var cloudy = null
+        var sunny = null
 
-        let cloudy = <div style={cloud} >
+        if(this.props.weather.weather){
+        var cloudy = <div style={cloud} >
     <table>
         <tbody>
             <tr>
                 <td>City : London</td>
-                <td>Weather Description : {this.props.weather.weather.description}</td>
-                <td>Temperature : {this.props.weather.main.temp}</td>
+                <td>Weather Description : {this.props.weather.weather.weather[0].description}</td>
+                <td>Temperature : {this.props.weather.weather.main.temp}</td>
                 <td><button onClick={this.props.submit}>Refresh</button></td>
                 
             </tr>
@@ -36,14 +39,14 @@ class Weather extends React.Component{
 
 </div>
         
-    let sunny = <div style={sun} >
+    var sunny = <div style={sun} >
     <table>
         <tbody>
             <tr>
                 <td>City : London</td>
-                <td>Weather Description : {this.props.weather.weather.description}</td>
-                <td>Temperature : {this.props.weather.main.temp}</td>
-                <td><button onClick={this.submit}>Refresh</button></td>
+                <td>Weather Description : {this.props.weather.weather.weather[0].description}</td>
+                <td>Temperature : {this.props.weather.weather.main.temp}</td>
+                <td><button onClick={this.props.submit}>Refresh</button></td>
                 
             </tr>
         </tbody>
@@ -51,12 +54,15 @@ class Weather extends React.Component{
 
 </div>
 
-if(this.props.weather.weather.description != "clear sky"){
+if(this.props.weather.weather.weather[0].description !== "clear sky"){
     sunny = null
 }
-else if (this.props.weather.weather.description == "clear sky"){
+else if (this.props.weather.weather.weather[0].description === "clear sky"){
     cloudy = null
 }
+}
+
+
 
     return (
         <React.Fragment>

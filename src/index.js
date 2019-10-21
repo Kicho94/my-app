@@ -15,6 +15,7 @@ import HwWrapper from './HwWrapper'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import UserList from './UsersList'
 import store from './redux/store.js'
+import Table from './Table'
 const app = document.getElementById('app')
 
 
@@ -27,7 +28,7 @@ const Routes = () =>
                 <Switch>
             <Route exact path ='/'component = {Home} />
             <Route path ='/about' component = {About} />
-            <Route path ='/contact' component = {Contact} />
+            <Route path ='/users_list' component = {Table} />
             <Route path ='/login' component = {Login} />
             <Route
              path = '/user'
