@@ -17,6 +17,8 @@ const sun = {
 
 
 class Weather extends React.Component{
+    
+   
     render(){
 
         let cloudy = <div style={cloud} >
@@ -26,7 +28,7 @@ class Weather extends React.Component{
                 <td>City : London</td>
                 <td>Weather Description : {this.props.weather.weather.description}</td>
                 <td>Temperature : {this.props.weather.main.temp}</td>
-                <td><button onClick={this.refresh}>Refresh</button></td>
+                <td><button onClick={this.props.submit}>Refresh</button></td>
                 
             </tr>
         </tbody>
@@ -41,7 +43,7 @@ class Weather extends React.Component{
                 <td>City : London</td>
                 <td>Weather Description : {this.props.weather.weather.description}</td>
                 <td>Temperature : {this.props.weather.main.temp}</td>
-                <td><button onClick={this.refresh}>Refresh</button></td>
+                <td><button onClick={this.submit}>Refresh</button></td>
                 
             </tr>
         </tbody>

@@ -16,18 +16,18 @@ class About extends React.Component{
         axios.get('api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=94df371e7106c41b5e7b854b0a4e7423')
         .then((response)=> {
             this.setState({weather: response})
-            submit = () =>{store.dispatch(weatherAction(this.state.weather))}     
+                
             console.log(response)
         })
         .catch((error) =>{
             console.log(error)
      }) 
         }
-
+        submit = () =>{store.dispatch(weatherAction(this.state.weather))}
     
     render(){
         return(
-            <Weather refresh={this.componentDidMount}/>
+            <Weather refresh={this.submit} />
 
         )
     }   
