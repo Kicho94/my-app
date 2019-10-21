@@ -1,10 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+
+
+
 class Alert extends React.Component { 
     render () {
         return (
-            <div>
+            <div >
                 {this.props.user.username}
                 <br></br>
                 {this.props.user.password}

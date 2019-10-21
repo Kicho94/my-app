@@ -5,10 +5,11 @@ import Alert from './Alert.js'
 import { deleteUser } from './redux/actions/deleteUser'
 
 
-const css = {
-    textAlign: 'center',
-        color: 'Green',
-       
+const cloud = {
+    backgroundImage: "url(" + "https://www.thelocal.it/userdata/images/article/9d7ac9c39690c0930e230a40814655952495d3327c70f6c6f427b6514230720c.jpg" + ")",
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
 }
 
 class Login extends React.Component {
@@ -42,9 +43,9 @@ class Login extends React.Component {
     }
 
     render() {
-        return <React.Fragment>
-                <Alert/>
-                <input id='username' 
+        return <React.Fragment >
+                   <Alert/>
+               <input id='username' 
                 placeholder='Username' 
                 onChange={this.checkInput}
                 />
@@ -55,6 +56,7 @@ class Login extends React.Component {
                 <input id='password' placeholder='Password' onChange={this.saveInput}/>
                 <button id='submit' onClick={this.submit}>Log In!</button>
                 <button id='delete' onClick={this.delete}>Delete</button>
+                
              </React.Fragment>
     }   
 }
