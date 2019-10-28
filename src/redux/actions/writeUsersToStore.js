@@ -7,15 +7,15 @@ export function writeUsersToStore(data){
 
 }
 
-function addUserToStore(data){
+export function addUserToStore(user){
     return{
         type: 'SAVE_USER',
-        payload: data
+        payload: user
     }
 
 }
 
-function deleteUserToStore(data){
+export function deleteUserToStore(data){
     return{
         type: 'DELETE_USER',
         payload: data

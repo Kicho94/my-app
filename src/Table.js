@@ -1,7 +1,10 @@
 import React from 'react'
 import axios from 'axios'
 import {connect} from 'react-redux'
-import {writeUsersToStore} from './redux/actions/writeUsersToStore'
+import {writeUsersToStore,
+        addUserToStore,
+        } from './redux/actions/writeUsersToStore'
+import './style.css'
 class Table extends React.Component {
     constructor(){
         super()
@@ -19,23 +22,46 @@ class Table extends React.Component {
             console.log(error)
         })
     }
+     saveUser = (id) => {
+         const newUser = {
+        id:id,
+        name: document.getElementById('name').value,
+        username: document.getElementById('username').value,
+        email: document.getElementById('email').value,
+        address: document.getElementById('address').value          
+
+
+
+         }
+        this.props.addUserToStore(newUser) 
+    }
     
     addUser = () => {
         this.setState({showModal:
-                    <div>
-                        <input placeholder='name'/>
-                        <input placeholder='username'/>
-                        <input placeholder='email'/>
-                        <input placeholder='address'/>
+                    <div className='my-modal'>
+                       <div className='form-container'>
+                      <div className='text-container'> ADD NEW USER</div> 
+                        <input id='name' type='text' className='form-control' placeholder='name'/>
+                        <input  id='username' type='text' className='form-control' placeholder='username'/>
+                        <input id='email' type='text' className='form-control' placeholder='email'/>
+                        <input  id='address' type='text' className='form-control' placeholder='address'/>
+                        <button id='save' className='btn btn-success' onClick={this.saveUser}>Save</button>
+                        <button id='close' className='btn btn-secondary' onClick={()=> this.setState({showModal: null})}>Close</button>
+                        </div>
                     </div>})
     }
     editUser = (user) => {
         this.setState({showModal:
-                    <div>
-                        <input defaultValue='user.name'/>
-                        <input defaultValue='user.username'/>
-                        <input defaultValue='user.email'/>
-                        <input defaultValue='user.address'/>
+                    <div className='my-modal'>
+                        <div className='form-container'>
+                            <div>EDIT USER</div>
+                        <input id='name' defaultValue={user.name} className='form-control'  />
+                        <input id='username' defaultValue={user.username} className='form-control' />
+                        <input id='email' defaultValue={user.email} className='form-control' />
+                        <input id='address' defaultValue={user.address.city + ' ' + user.address.street + ' ' + user.address.suite} className='form-control' />
+                        <button id='save' className='btn btn-success' onClick={() => this.props.addUserToStore(user.id)} >Save</button>
+                        <button id='close' className='btn btn-secondary' onClick={()=> this.setState({showModal: null})} >Close</button>
+                        </div>
                     </div>})
     }
 
@@ -56,7 +82,7 @@ class Table extends React.Component {
                         {`${user.address.street} ${user.address.suite}`}
                     </td>
                     <td>
-                        <button id='edit' onClick={() => this.editUser(user)}>Edit</button>
+                        <button id='edit' className='btn btn-light' onClick={() => this.editUser(user)}>Edit</button>
                     </td>
                 </tr>
             })
@@ -64,15 +90,17 @@ class Table extends React.Component {
         }
 
         return(
-            <table>
+            <table className = 'table table-dark'>
+                {this.state.showModal}
+                
                 <thead>
-               
-                <td>
-                    <button id='add' onClick={this.addUser}>
+               <tr>
+                <th>
+                    <button id='add' className='btn btn-success' onClick={this.addUser}>
                         Add new user
                     </button>
-                </td>
-
+                </th>
+                </tr>
                 </thead>
                 
                 <tbody>
@@ -90,7 +118,8 @@ function mapStateToProps(state){
 }
 function mapDispatchToProps(dispatch){
     return{
-        writeUsersToStore: (data) => dispatch(writeUsersToStore(data))
+        writeUsersToStore: (data) => dispatch(writeUsersToStore(data)),
+        addUserToStore: (data) => dispatch(addUserToStore(data))
     }
 }
 
