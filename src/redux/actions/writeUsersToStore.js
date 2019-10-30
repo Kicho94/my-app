@@ -1,3 +1,5 @@
+import axios from "axios"
+
 
 export function writeUsersToStore(data){
     return{
@@ -8,12 +10,20 @@ export function writeUsersToStore(data){
 }
 
 export function addUserToStore(user){
-    return{
-        type: 'SAVE_USER',
-        payload: user
+    return function (dispatch){
+        axios.get('asdfasf').then(()=>{
+            dispatch({
+                type: 'SAVE_USER',
+            payload: user
+            })
+        })
+        
+
+    }
+    
     }
 
-}
+
 
 export function deleteUserToStore(data){
     return{

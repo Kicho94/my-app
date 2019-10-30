@@ -3,6 +3,7 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 import {writeUsersToStore,
         addUserToStore,
+        deleteUserToStore
         } from './redux/actions/writeUsersToStore'
 import './style.css'
 class Table extends React.Component {
@@ -33,7 +34,8 @@ class Table extends React.Component {
 
 
          }
-        this.props.addUserToStore(newUser) 
+        this.props.addUserToStore(newUser)
+        this.setState({showModal: null})
     }
     
     addUser = () => {
@@ -45,7 +47,7 @@ class Table extends React.Component {
                         <input  id='username' type='text' className='form-control' placeholder='username'/>
                         <input id='email' type='text' className='form-control' placeholder='email'/>
                         <input  id='address' type='text' className='form-control' placeholder='address'/>
-                        <button id='save' className='btn btn-success' onClick={this.saveUser}>Save</button>
+                        <button id='save' className='btn btn-success' onClick={() => this.saveUser()}>Save</button>
                         <button id='close' className='btn btn-secondary' onClick={()=> this.setState({showModal: null})}>Close</button>
                         </div>
                     </div>})
@@ -59,10 +61,14 @@ class Table extends React.Component {
                         <input id='username' defaultValue={user.username} className='form-control' />
                         <input id='email' defaultValue={user.email} className='form-control' />
                         <input id='address' defaultValue={user.address.city + ' ' + user.address.street + ' ' + user.address.suite} className='form-control' />
-                        <button id='save' className='btn btn-success' onClick={() => this.props.addUserToStore(user.id)} >Save</button>
+                        <button id='save' className='btn btn-success' onClick={() => this.saveUser(user.id)} >Save</button>
                         <button id='close' className='btn btn-secondary' onClick={()=> this.setState({showModal: null})} >Close</button>
                         </div>
                     </div>})
+    }
+
+    deleteUser = (user) => {
+        this.props.deleteUserToStore(user)
     }
 
     render(){
@@ -83,6 +89,8 @@ class Table extends React.Component {
                     </td>
                     <td>
                         <button id='edit' className='btn btn-light' onClick={() => this.editUser(user)}>Edit</button>
+                        <button id='delete' className='btn btn-danger' onClick={() => this.deleteUser(user)}>Delete</button>
+
                     </td>
                 </tr>
             })
@@ -118,8 +126,9 @@ function mapStateToProps(state){
 }
 function mapDispatchToProps(dispatch){
     return{
-        writeUsersToStore: (data) => dispatch(writeUsersToStore(data)),
-        addUserToStore: (data) => dispatch(addUserToStore(data))
+        writeUsersToStore: (...data) => dispatch(writeUsersToStore(...data)),
+        addUserToStore: (...data) => dispatch(addUserToStore(...data)),
+        deleteUserToStore: (...data) => dispatch(deleteUserToStore(...data))
     }
 }
 
