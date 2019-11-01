@@ -11,10 +11,10 @@ export function writeUsersToStore(data){
 
 export function addUserToStore(user){
     return function (dispatch){
-        axios.get('asdfasf').then(()=>{
+        axios.get('https://jsonplaceholder.typicode.com/users').then(()=>{
             dispatch({
                 type: 'SAVE_USER',
-            payload: user
+                payload: user
             })
         })
         
