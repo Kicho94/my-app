@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 
 
 const cloud = {
-    backgroundImage: "url(" + "https://www.thelocal.it/userdata/images/article/9d7ac9c39690c0930e230a40814655952495d3327c70f6c6f427b6514230720c.jpg" + ")",
+    background: 'grey',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat'
 }
 const sun = {
-    backgroundImage: "url(" + "https://static.bhphotovideo.com/explora/sites/default/files/styles/top_shot/public/ts-space-sun-and-solar-viewing-facts-versus-fiction.jpg?itok=gaBs6QMS" + ")",
+    background: 'yellow',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat'

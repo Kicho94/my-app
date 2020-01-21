@@ -21,7 +21,7 @@ class About extends React.Component{
         .then((response)=> {
             this.setState({weather: response.data})
             store.dispatch(weatherAction(response.data))
-            console.log(response.data)
+            console.log(response.data)  
         }).catch((error) =>{
             console.log(error)
      }) 

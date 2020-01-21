@@ -3,9 +3,10 @@ import  './style.css'
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 
 const Menu = () =>{
+    var asdf= () => {prompt("zdravo")}
     return (<ul >
             <li>
-            <Link to='/'>Home</Link>
+            <button><Link to='/'>Home</Link></button>
             </li>
             <li>
             <Link to='/about'>About</Link>

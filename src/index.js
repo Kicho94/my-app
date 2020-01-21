@@ -26,7 +26,7 @@ const Routes = () =>
  return      <Router>
                 <Menu />
                 <Switch>
-            <Route exact path ='/'component = {Home} />
+            <Route exact path ='/'component = {User} />
             <Route path ='/about' component = {About} />
             <Route path ='/users_list' component = {Table} />
             <Route path ='/login' component = {Login} />

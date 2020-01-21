@@ -1,5 +1,5 @@
 import React from 'react'
-
+import  './style.css'
 const User = () =>{
     return (
         <React.Fragment>
